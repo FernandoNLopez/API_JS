@@ -10,6 +10,7 @@ import subscriptionRouter from './routes/subscription.routes.js';
 import connectToDatabase from './database/mongodb.js';
 //server
 import errorMiddleware from './middlewares/error.middleware.js';
+import arcjetMiddleware from './middlewares/arcjet.middleware.js';
 
 
 
@@ -19,6 +20,7 @@ const app = express();
 app.use(express.json()); // -> allows app to handle json data sent in request
 app.use(express.urlencoded({ extended: false })); //help us to process the data html -> simple form
 app.use(cookieParser()); // reads cookies from incoming request -> app can store user data  
+app.use(arcjetMiddleware);
 
 
 //routes
